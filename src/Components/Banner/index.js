@@ -1,7 +1,7 @@
 import styles from "./banner.module.css"
-import imagem from "../../imagens/Banner.png"
 
-export default function Banner() {
+
+export default function Banner({imagem}) {
     return (
         <div className={styles.capa}>
             <img src={imagem}/>
