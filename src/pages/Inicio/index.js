@@ -1,11 +1,23 @@
 import Banner from "Components/Banner";
 import Titulo from "Components/Titulo";
 import Card from "Components/Card";
-import videos from "json/db.json"
+
 import styles from "./Inicio.module.css"
 import banner from "../../imagens/Banner.png"
+import { useEffect, useState } from "react";
 
 export default function Inicio(){
+
+    const [videos, setVideos] = useState([]);
+
+    useEffect(()=>{
+        fetch("https://my-json-server.typicode.com/yangomes010/tagcine-api/videos")
+        .then(res=>res.json())
+        .then(dados=>{
+            setVideos(dados)
+        })
+    },[])
+
     return(
         <>
         <Banner imagem={banner}/>
